@@ -1,0 +1,2 @@
+Medisinsk-utstyr-med-litiumbatterier
+Medisinsk utstyr med litiumbatterier under 100Wh kan plasserer i håndbagasje eller innsjekket bagasje uten at flyselskapets tillatelse må innhentes. Litiumbatteriet i enheten må ikke overskride 160Wh, og batteriet må være testet iht UN 38.3. Hvis enheten er mellom 100wh og 160wh, må flyselskapets tillatelse innhentes. Hvis mengden litium i litium-metallbatterier er mellom 2g og 8g, må selskapets tillatelse innhentes. Over 160wh eller 8g litium er enheten ikke tillatt.

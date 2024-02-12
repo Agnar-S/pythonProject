@@ -1,0 +1,17 @@
+Elektronikk-i-handbagasjen
+Litiumbatteriet i enheten må ikke overskride 160Wh, max 2g litium for litium-metallbatterier, og batteriet må være testet iht UN 38.3. Flyselskapets tillatelse må innhentes dersom enhetens batteri er mellom 100wh og 160wh.
+Det er ikke tillat flere enn 15 elektroniske enheter pr passasjer uten flyselskapets tillatelse. Det er tre grenser når det gjelder elektronikk med litiumbatterier: -Under 100wh – (tillatelse ikke nødvendig). -Mellom 100 og 160wh – (flyselskapets tillatelse er påkrevd) -Over 160wh – (farlig gods – ikke lov å ta med i handbagasje eller innsjekket bagasje) I tillegg kommer en rekke andre krav og begrensninger. På mange enheter oppgis batteriets styrke i mAh.
+Du kan enkelt regne om til watt-timer (Wh) dersom du kjenner spenningen (Volt). Wh (watt-timer) = milliamp-timer (mAh) X volt / 1000: Eksempel: Har du en enhet oppgitt til 20000mAh, og denne er 5V, blir regnestykket slik: 20000X5/1000 = 100wh.
+
+
+
+
+
+
+
+
+
+
+
+
+×

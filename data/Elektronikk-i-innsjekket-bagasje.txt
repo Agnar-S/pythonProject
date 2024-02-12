@@ -1,0 +1,9 @@
+Elektronikk-i-innsjekket-bagasje
+Litiumbatteriet i enheten må ikke overskride 160Wh, max 2g litium for litium-metallbatterier, og batteritypen må være testet iht UN 38.3. Hvis enheten er mellom 100wh og 160wh, må flyselskapets tillatelse innhentes. Enheten må være helt avslått (ikke i hvilemodus) og beskyttet mot skade og at enheten slås på ved uhell. Det er ikke tillat med flere enn 15 elektroniske enheter pr passasjer uten flyselskapets tillatelse.
+
+
+Det er tre grenser når det gjelder elektronikk med litiumbatterier:
+-Under 100wh – (tillatelse ikke nødvendig). 
+-Mellom 100 og 160wh – (flyselskapets tillatelse er påkrevd)
+-Over 160wh – (farlig gods – ikke lov å ta med i handbagasje eller innsjekket bagasje)
+I tillegg kommer en rekke andre krav og begrensninger.

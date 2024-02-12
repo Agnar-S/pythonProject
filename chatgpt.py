@@ -10,6 +10,7 @@ from langchain.indexes import VectorstoreIndexCreator
 from langchain.indexes.vectorstore import VectorStoreIndexWrapper
 from langchain_community.vectorstores import Chroma
 import constants
+import time
 
 # Load spaCy model with disabled components for efficiency
 nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
@@ -25,11 +26,13 @@ PERSIST = False
 # Implement caching mechanism for repeated queries (placeholder logic)
 cache = {}
 
+
 def preprocess_question(question):
     # Use spaCy's efficient processing
     doc = nlp(question)
     cleaned_question = " ".join(token.lemma_ for token in doc if not token.is_stop and not token.is_punct)
     return cleaned_question
+
 
 def format_answer_with_bullets(answer):
     # Use compiled regex for replacing transition phrases
@@ -41,9 +44,11 @@ def format_answer_with_bullets(answer):
 
     return "Here are the responses with bullet points:\n\n" + bullet_formatted_answer
 
+
 def construct_prompt(user_input):
     instruction = "You only answer questions related to permitted items in luggage at the airport."
     return f"{instruction}\n\nUser: {user_input}\nAI:"
+
 
 # Main loop simplified for clarity
 if __name__ == "__main__":
@@ -62,14 +67,17 @@ if __name__ == "__main__":
 
     chain = ConversationalRetrievalChain.from_llm(
         llm=ChatOpenAI(model="gpt-3.5-turbo"),
-        retriever=index.vectorstore.as_retriever(search_kwargs={"k": 3}),
+        retriever=index.vectorstore.as_retriever(search_kwargs={"k": 92}),
     )
 
     chat_history = []
     while True:
+
         user_input = input("Prompt: ") if not query else query
         if user_input.lower() in ['quit', 'q', 'exit']:
             sys.exit()
+
+        start_time = time.time()
 
         # Check cache before processing
         if user_input in cache:
@@ -82,5 +90,8 @@ if __name__ == "__main__":
             cache[user_input] = formatted_answer  # Update cache
 
         print(formatted_answer)
+        end_time = time.time()
+        result = end_time - start_time
+        print("Time: ", result)
         chat_history.append((user_input, formatted_answer))
         query = None  # Reset query for the next loop iteration

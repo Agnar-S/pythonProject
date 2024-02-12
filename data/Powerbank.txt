@@ -1,0 +1,8 @@
+Powerbank
+Enheter der hovedformålet er å gi strøm til andre enheter kan kun tas med i håndbagasjen. Enheten må sikres mot kortslutning. Maksimal tillat effekt er 160Wh, og flyselskapets tillatelse må innhentes mellom 100Wh og 160Wh. 
+
+Det er tre grenser når det gjelder elektronikk med litium-batterier:
+-Under 100wh – (tillatelse ikke nødvendig). 
+-Mellom 100 og 160wh – (flyselskapets tillatelse er påkrevd)
+-Over 160wh – (farlig gods – ikke lov å ta med i handbagasje eller innsjekket bagasje)
+I tillegg kommer en rekke andre krav og begrensninger.
