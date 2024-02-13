@@ -3,9 +3,9 @@ import sys
 import spacy
 import re
 from langchain.chains import ConversationalRetrievalChain
-from langchain_community.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain_community.document_loaders import DirectoryLoader
-from langchain_community.embeddings import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain.indexes import VectorstoreIndexCreator
 from langchain.indexes.vectorstore import VectorStoreIndexWrapper
 from langchain_community.vectorstores import Chroma
@@ -13,7 +13,7 @@ import constants
 import time
 
 # Load spaCy model with disabled components for efficiency
-nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
+nlp = spacy.load("nb_core_news_sm", disable=["parser", "ner"])
 
 # Precompile regex patterns for efficiency
 transition_phrases = ["Regarding", "Furthermore", "Additionally", "Note:"]
@@ -46,8 +46,17 @@ def format_answer_with_bullets(answer):
 
 
 def construct_prompt(user_input):
-    instruction = "You only answer questions related to permitted items in luggage at the airport."
+    instructions = [
+        "Focus exclusively on responding to inquiries concerning items allowed in luggage for air travel.",
+        "Examine the details of each item mentioned by the user, assessing their permissibility.",
+        "After providing an answer, direct users to customer service ('kundeservice') for further assistance.",
+        "Offer thorough explanations to ensure users understand the reasoning behind each decision.",
+        "Maintain clarity and brevity in your responses, avoiding unnecessary elaboration",
+        "Identify travel contexts from user statements (e.g., 'going hunting' implies carrying weapons) to better tailor responses."
+    ]
+    instruction = " ".join(instructions)  # Kombinerer listen til en streng separert med mellomrom.
     return f"{instruction}\n\nUser: {user_input}\nAI:"
+
 
 
 # Main loop simplified for clarity
@@ -66,7 +75,7 @@ if __name__ == "__main__":
             index = VectorstoreIndexCreator().from_loaders([loader])
 
     chain = ConversationalRetrievalChain.from_llm(
-        llm=ChatOpenAI(model="gpt-3.5-turbo"),
+        llm=ChatOpenAI(model="gpt-3.5-turbo-1106"),
         retriever=index.vectorstore.as_retriever(search_kwargs={"k": 92}),
     )
 
