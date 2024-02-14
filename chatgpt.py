@@ -16,7 +16,7 @@ import time
 nlp = spacy.load("nb_core_news_sm", disable=["parser", "ner"])
 
 # Precompile regex patterns for efficiency
-transition_phrases = ["Regarding", "Furthermore", "Additionally", "Note:"]
+transition_phrases = ["Angående", "Også videre", "osv", "I tillegg", "Note:"]
 transition_phrases_pattern = re.compile(r"(?<!\.)\s(" + "|".join(transition_phrases) + ")")
 
 os.environ["OPENAI_API_KEY"] = constants.APIKEY
@@ -42,14 +42,14 @@ def format_answer_with_bullets(answer):
     items = re.split(r'(?<=[^A-Z].[.?]) (?=[A-Z])', answer)
     bullet_formatted_answer = "\n".join(f"• {item.strip()}" for item in items if item)
 
-    return "Here are the responses with bullet points:\n\n" + bullet_formatted_answer
+    return "" + bullet_formatted_answer
 
 
 def construct_prompt(user_input):
     instructions = [
         "Focus exclusively on responding to inquiries concerning items allowed in luggage for air travel.",
         "Examine the details of each item mentioned by the user, assessing their permissibility.",
-        "After providing an answer, direct users to customer service ('kundeservice') for further assistance.",
+        "After providing an answer, always direct users to customer service ('kundeservice') by using kundeservice.txt for further assistance.",
         "Offer thorough explanations to ensure users understand the reasoning behind each decision.",
         "Maintain clarity and brevity in your responses, avoiding unnecessary elaboration",
         "Identify travel contexts from user statements (e.g., 'going hunting' implies carrying weapons) to better tailor responses."
