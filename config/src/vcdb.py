@@ -30,6 +30,7 @@ def query(item):
     """
     return query_item
 
+
 def get_description(query):
     try:
         start_time = time.time()

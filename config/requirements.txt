@@ -2,3 +2,6 @@ uvicorn
 fastapi
 spacy
 pydantic
+constants
+chromadb
+openai
